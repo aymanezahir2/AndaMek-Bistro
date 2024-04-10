@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+:root {
+  background: transparent;
+  
+}
+.t{
+  transition: 2s all;
+}
+body {
+  background-color: white;
+  font-family: 'Cairo', sans-serif;
+}
+.logo{
+  font-family: 'Italiana', sans-serif;
+}
+
+@layer components {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #fb84c6;
+  }
+  ::-webkit-scrollbar-track {
+    background: #4d2f41;
+  }
+
+  .gr1{
+    @apply bg-gradient-to-bl from-redone/70 !bg-transparent to-redone;
+  }
+
+  .gr2{
+    @apply bg-gradient-to-tl from-orangeone/40 to-orangeone;
+  }
+
+  .hover1 {
+    @apply hover:bg-[#ddd] transition-all ;
+  }
+
+  .btn-primary {
+    @apply text-white bg-redone rounded-xl px-4 py-2 transition-all hover:scale-110;
+  }
+  .btn-regular {
+    @apply  bg-transparent relative after:bg-redone rounded-xl border-2 border-redone isolate hover:text-white overflow-hidden py-2 px-4 hover:after:h-full ;
+  }
+  .btn-regular-orange {
+    @apply  bg-transparent relative after:bg-orangeone rounded-xl border-2 border-orangeone isolate hover:text-white overflow-hidden py-2 px-4 hover:after:h-full ;
+  }
+  .container {
+    @apply mx-auto px-2;
+  }
+  .flexCol {
+    @apply flex flex-col justify-start items-center;
+  }
+  .flexCenter {
+    @apply flex justify-center items-center;
+  }
+
+  .flexBetween {
+    @apply flex justify-between items-center;
+  }
+
+  .flexStart {
+    @apply flex items-center justify-start;
+  }
+  .flexEnd {
+    @apply flex items-center justify-end;
+  }
+
+  .text-small {
+    @apply text-sm font-medium;
+  }
+  .headerFixed{
+    @apply fixed inset-0 z-40  bottom-auto transition-all;
+  }
+
+  .paddings {
+    @apply lg:px-20 py-6 px-5;
+  }
+  .title-font {
+    @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  .paragh-font {
+    @apply text-lg md:text-base lg:text-lg xl:text-2xl text-[#777];
+  }
+  .absoluteCenter{
+    @apply absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%];
+  }
+
+  .text-header{
+    @apply font-header text-xl md:text-3xl lg:text-5xl my-5 text-redone  text-center ;
+  }
+  .text-header-title{
+    @apply font-header text-5xl text-center text-redone ;
+  }
+
+  .inputNormal{
+    @apply input bg-white focus:outline-redone border-[#cecece];
+  }
+}
+
+
+.btn-regular::after , .btn-regular-orange::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  isolation: isolate;
+  height: 0;
+  z-index: -1;
+  transition: .3s all;
+}

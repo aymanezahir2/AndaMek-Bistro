@@ -1,0 +1,129 @@
+{
+  "foods": [
+    {
+      "name": "Tagine de Poulet aux Olives",
+      "description": "Tagine classique avec poulet, olives et épices.",
+      "image_url": "/recipe/food/tagine_poulet_olives.jpeg",
+      "prix": "70 MAD",
+      "type": "tagine"
+    },
+    {
+      "name": "Tagine d'Agneau aux Pruneaux",
+      "description": "Tajine d'agneau tendre avec des pruneaux sucrés.",
+      "image_url": "/recipe/food/tagine_agneau_pruneaux.jpg",
+      "prix": "90 MAD",
+      "type": "tagine"
+    },
+    {
+      "name": "Tagine de Kefta",
+      "description": "Tagine de boulettes de viande hachée aux épices.",
+      "image_url": "/recipe/food/tagine_kefta.jpeg",
+      "prix": "65 MAD",
+      "type": "tagine"
+    },
+    {
+      "name": "Tagine de Poisson aux Légumes",
+      "description": "Tagine de poisson frais avec légumes mijotés.",
+      "image_url": "/recipe/food/tagine_poisson_legumes.jpg",
+      "prix": "85 MAD",
+      "type": "tagine"
+    },
+    {
+      "name": "Tagine de Légumes",
+      "description": "Tagine végétarien avec une variété de légumes frais.",
+      "image_url": "/recipe/food/tagine_legumes.jpeg",
+      "prix": "55 MAD",
+      "type": "tagine"
+    },
+
+    {
+      "name": "Couscous au Mouton",
+      "image_url": "/recipe/food/couscous_mouton.jpg",
+      "description": "Couscous savoureux garni de mouton tendre.",
+      "prix": "80 MAD",
+      "type": null
+    },
+    {
+      "name": "Pastilla au Poulet",
+      "image_url": "/recipe/food/pastilla_poulet.jpeg",
+      "description": "Pastilla croustillante au poulet et aux amandes.",
+      "prix": "70 MAD",
+      "type": "pastilla"
+    },
+    {
+      "name": "Harira Traditionnelle",
+      "image_url": "/",
+      "description": "Soupe chaude traditionnelle aux lentilles et aux épices.",
+      "prix": "40 MAD",
+      "type": null
+    },
+    {
+      "name": "Pastilla aux Fruits de Mer",
+      "image_url": "/recipe/food/pastilla_fruits_mer.jpeg",
+      "description": "Pastilla croustillante aux fruits de mer et aux épices.",
+      "prix": "100 MAD",
+      "type": "pastilla"
+    },
+    {
+      "name": "Méchoui d'Agneau",
+      "image_url": "/recipe/food/mechoui_agneau.jpg",
+      "description": "Agneau rôti lentement, tendre et juteux.",
+      "prix": "120 MAD"
+    },
+    {
+      "name": "Briouats au Fromage",
+      "image_url": "/recipe/food/briouats_fromage.jpg",
+      "description": "Délicieux briouats farcis au fromage fondant.",
+      "prix": "50 MAD",
+      "type": null
+    },
+    {
+      "name": "Rfissa au Poulet",
+      "image_url": "",
+      "description": "Plat traditionnel avec du poulet et des lentilles.",
+      "prix": "75 MAD",
+      "type": null
+    },
+    {
+      "name": "Salade Marocaine",
+      "image_url": "/recipe/food/salade_marocaine.jpg",
+      "description": "Salade fraîche avec des légumes de saison.",
+      "prix": "45 MAD"
+    },
+
+    {
+      "name": "Couscous Végétarien",
+      "image_url": "/recipe/special/couscous.png",
+      "description": "Couscous délicieux avec des légumes frais.",
+      "prix": "55 MAD",
+      "type": null
+    },
+    {
+      "name": "Msemmen au Miel",
+      "image_url": "/",
+      "description": "Délicieux msemmen avec du miel sucré.",
+      "prix": "35 MAD"
+    },
+    {
+      "name": "Mrouzia",
+      "image_url": "/recipe/food/mrouzia.jpg",
+      "description": "Plat traditionnel avec de l'agneau, des amandes et du miel.",
+      "prix": "85 MAD",
+      "type": null
+    },
+    {
+      "name": "Harcha aux Olives",
+      "image_url": "/",
+      "description": "Délicieuse galette de semoule avec des olives.",
+      "prix": "30 MAD",
+      "type": null
+    },
+    {
+      "name": "Chebakia",
+      "image_url": "/",
+      "description": "Biscuits sucrés aux graines de sésame.",
+      "prix": "25 MAD",
+      "type": null
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+    "drink" : [{
+        "name": "Jus d'Orange Frais",
+        "image_url": "/recipe/drinks/jus_orange.jpg",
+        "description": "Jus d'orange fraîchement pressé.",
+        "prix": "20 MAD"
+      },
+      {
+        "name": "Café Marocain",
+        "image_url": "/recipe/drinks/cafe_marocain.jpg",
+        "description": "Café fort et aromatique, servi avec style.",
+        "prix": "10 MAD"
+      },
+      {
+        "name": "Limonade Maison",
+        "image_url": "/recipe/drinks/limonade.jpg",
+        "description": "Limonade rafraîchissante faite maison.",
+        "prix": "25 MAD"
+      },
+      {
+        "name": "Café au Lait",
+        "image_url": "/recipe/drinks/cafe_lait.png",
+        "description": "Café fort mélangé avec du lait chaud.",
+        "prix": "15 MAD"
+      },
+      {
+        "name": "Jus de Pamplemousse",
+        "image_url": "/recipe/drinks/jus_pamplemousse.jpg",
+        "description": "Jus de pamplemousse fraîchement pressé.",
+        "prix": "20 MAD"
+      },
+      {
+        "name": "Lait d'Amande",
+        "image_url": "/recipe/drinks/lait_amande.jpeg",
+        "description": "Boisson végétale à base d'amandes.",
+        "prix": "30 MAD"
+      },
+      {
+        "name": "Thé à la Rose",
+        "image_url": "/recipe/drinks/the_rose.jpg",
+        "description": "Thé noir parfumé à la rose.",
+        "prix": "25 MAD"
+      },
+     
+      {
+        "name": "Smoothie aux Fruits Exotiques",
+        "image_url": "/recipe/drinks/smoothie_fruits.jpeg",
+        "description": "Smoothie frais et revigorant aux fruits exotiques.",
+        "prix": "35 MAD"
+      }]
+}
