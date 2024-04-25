@@ -3,11 +3,13 @@ import { HandleTypeDrink } from "../api";
 import { boissons_bg} from "../assets";
 import { Recipe } from "../constants";
 import { Helmet } from "react-helmet-async";
+import { SkeletonRecipe } from "../components/shared/ui/skeletons";
 
 type dataType = { [key: string]: Recipe[] }
 export default function Menu() {
     const [data, setdata] = useState<dataType | null>(null);
     const [datakey, setdatakey] = useState<string[]>([])
+    const [load , setLoad] = useState<boolean>(false)
 
     useEffect(() => {
 
@@ -18,6 +20,7 @@ export default function Menu() {
             setdata(datas)
             const arrayofkeys = Object.keys(datas || {});
             setdatakey(arrayofkeys)
+            setLoad(true)
         }
 
         start()
@@ -26,13 +29,13 @@ export default function Menu() {
 
 
     const Element = () => {
-        if (data !== null) {
+        if (load) {
           
                 return (
                     <div className="container relative grid max-w-xl grid-cols-1 gap-5 items-baseline py-5">
                         {datakey.map(e => (
                             <BoxParent key={e} name={e}>
-                                {data[e]?.map((el : Recipe) => <Box key={el.description} {...el} />)}
+                                {data && data[e]?.map((el : Recipe) => <Box key={el.description} {...el} />)}
                             </BoxParent>
                         ))}
                     </div>
@@ -40,7 +43,29 @@ export default function Menu() {
             
         }
         // Handle case when data is null
-        return null;
+        return (
+            <div className="container relative max-w-xl lg:max-w-3xl gap-5 items-baseline py-5">
+                <BoxParent name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+            </div>
+        )
     }
 
     return (
@@ -51,19 +76,19 @@ export default function Menu() {
             {/* overlay */}
             <div className="absolute bg-white/60 inset-0"></div>
 
-            {data && <Element />}
+            <Element />
 
         </div>
     )
 }
 
-function BoxParent({ children, name }: { children: ReactNode, name: string }) {
+function BoxParent({ children, name }: { children: ReactNode, name: string | null }) {
 
 
 
     return (
         <div className="shadow-lg rounded-xl p-9 bg-white">
-            <h2 className="text-center text-4xl mb-5 font-header">les {name}s</h2>
+            {name === null ? <div className=" skeleton h bg-slate-400 mx-auto mb-10" style={{height : 40, width : 200}} /> : <h2 className="text-center text-4xl mb-5 font-header">les {name}s</h2>}
             {children}
         </div>
     )

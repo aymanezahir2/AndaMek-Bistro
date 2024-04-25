@@ -121,3 +121,13 @@ body {
   z-index: -1;
   transition: .3s all;
 }
+.h {
+  background-image: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 40%,
+    #ddd,
+    transparent 60%,
+    transparent 100%
+  );
+}

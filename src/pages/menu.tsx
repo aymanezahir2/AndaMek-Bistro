@@ -4,10 +4,12 @@ import { menu_bg } from "../assets";
 import { Recipe } from "../constants";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { SkeletonRecipe, SkeletonRecipeButton } from "../components/shared/ui/skeletons";
 
 type dataType = { [key: string]: Recipe[] } | Recipe[]
 export default function Menu() {
     const [data, setdata] = useState<dataType | null>(null);
+    const [loader , setLoad] = useState<boolean>(true)
     const [searchparams, setSearchP] = useSearchParams();
     const [datakey, setdatakey] = useState<string[]>([])
 
@@ -19,6 +21,8 @@ export default function Menu() {
 
         async function start() {
 
+            
+    
             const datas = await HandleType("./data/food.json");
             if (type === null || type == "tout") {
 
@@ -33,21 +37,22 @@ export default function Menu() {
 
             const arrayofkeys = Object.keys(datas || {});
             setdatakey(arrayofkeys)
+            setLoad(false)
         }
 
         start()
-    }, [])
+    }, []) 
 
 
 
     const Element = () => {
-        if (data !== null) {
+        if (!loader) {
             if (type === "tout") {
                 return (
                     <div className="container relative grid max-lg:max-w-xl grid-cols-1 lg:grid-cols-2 gap-5 items-baseline py-5">
                         {datakey.map(e => (
                             <BoxParent key={e} name={e}>
-                                {(data as { [key: string]: Recipe[] })[e]?.map(el => <Box key={el.description} {...el} />)}
+                                {(data as { [key: string]: Recipe[] })[e]?.map(el => <Box key={el.description} {...el} />)} 
                             </BoxParent>
                         ))}
                     </div>
@@ -57,7 +62,6 @@ export default function Menu() {
                 const dataArray = Array.isArray(data) ? data : [];
                 return (
                     <div className="container relative max-w-xl lg:max-w-3xl gap-5 items-baseline py-5">
-
                         <BoxParent key={type} name={type ?? ""}>
                             {dataArray.map(el => <Box key={el.description} {...el} />)}
                         </BoxParent>
@@ -66,7 +70,29 @@ export default function Menu() {
             }
         }
         // Handle case when data is null
-        return null;
+        return (
+            <div className="container relative max-w-xl lg:max-w-3xl gap-5 items-baseline py-5">
+                <BoxParent key={type} name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent key={type} name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent key={type} name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent key={type} name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+                <div className="divider"></div>
+                <BoxParent key={type} name={null}>
+                    <SkeletonRecipe />
+                </BoxParent>
+            </div>
+        )
     }
 
     return (
@@ -76,21 +102,20 @@ export default function Menu() {
             <Helmet>
                 <title>AndalMek Bistro - Menu</title>
             </Helmet>
-            <ButtonsComponent setData={(i) => setdata(i)} data={datakey} />
-
-            {data && <Element />}
+            <ButtonsComponent loader={loader} setData={(i) => setdata(i)} data={datakey} />
+             <Element />
 
         </div>
     )
 }
 
-function BoxParent({ children, name }: { children: ReactNode, name: string }) {
+function BoxParent({ children, name }: { children: ReactNode, name: string | null }) {
 
 
 
     return (
         <div className="shadow-lg rounded-xl p-9 bg-white">
-            <h2 className="text-center text-4xl mb-5 font-header">les {name}s</h2>
+            {name === null ? <div className=" skeleton h bg-slate-400 mx-auto mb-10" style={{height : 40, width : 200}} /> : <h2 className="text-center text-4xl mb-5 font-header">les {name}s</h2>}
             {children}
         </div>
     )
@@ -124,8 +149,9 @@ function Box({ name, description, prix, image_url }: Recipe) {
 
 
 
-function ButtonsComponent({ data, setData }: { data: string[], setData: (i: dataType) => void }) {
+function ButtonsComponent({ data, setData, loader }: {loader: boolean, data: string[], setData: (i: dataType) => void }) {
     const [searchparams, setSearchP] = useSearchParams();
+    
 
     const type = searchparams.get("type");
 
@@ -136,7 +162,6 @@ function ButtonsComponent({ data, setData }: { data: string[], setData: (i: data
         setSearchP({ type: name })
         async function start() {
 
-
             const datas: dataType = await HandleType("./data/food.json");
             setData(name === "tout" ? datas : datas[name])
         }
@@ -146,8 +171,12 @@ function ButtonsComponent({ data, setData }: { data: string[], setData: (i: data
 
     return (
         <div className="join relative block mt-10 mx-auto w-max">
-            {["tout", ...data].map(key => <input key={key} className="join-item btn capitalize checked:gr2 text-white" checked={type === key} onChange={handle} type="radio" name={key} aria-label={key} />)}
-
+            {!loader ? 
+            
+            ["tout", ...data].map(key => <input key={key} className="join-item btn capitalize checked:gr2 text-white" checked={type === key} onChange={handle} type="radio" name={key} aria-label={key} />)
+            : 
+            
+            <SkeletonRecipeButton />}
         </div>
     )
 }

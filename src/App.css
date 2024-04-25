@@ -1,9 +1,10 @@
-.gallery:hover{
-    background-size: 110%;
-    transition: 1s all;
-    cursor: pointer;
+.gallery:hover {
+  background-size: 110%;
+  transition: 1s all;
+  cursor: pointer;
 }
 
-.dvh3{
-    height: 200dvh;
+.dvh3 {
+  height: 200dvh;
 }
+

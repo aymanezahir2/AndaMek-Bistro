@@ -4,7 +4,10 @@ import { CiLocationOn } from "react-icons/ci";
 export default function Page(){
     return (
         <div className="lg:flexBetween max-lg:flexCol my-5 py-10 rounded-xl bg-slate-200  max-lg:flex-col-reverse container gap-5"> 
+           
             <img src={about_us} alt="photo" className="lg:w-1/2 rounded-3xl" />
+
+         
             <div className="lg:w-1/2 text-center">
                 <h1 className="font-header text-4xl text-orangeone">à propos</h1>
                 <h3 className="font-second text-2xl my-3 text-redone">Meknes cuisine</h3>
