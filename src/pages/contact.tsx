@@ -27,7 +27,7 @@ export default function Contact() {
         <div style={{ paddingTop: "147px" }} className="">
 
             <Helmet>
-                <title>AndalMek Bistro - Resérve</title>
+                <title>Resérve</title>
             </Helmet>
             {/* overlay */}
             <div className="container">
